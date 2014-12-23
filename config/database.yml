@@ -13,7 +13,7 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
+  username: framework
   password:
   socket: /var/run/mysqld/mysqld.sock
 
@@ -26,6 +26,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  <%= "username: root" if ENV['CI'] %>
   database: framework_test
 
 # As with config/secrets.yml, you never want to store sensitive information,

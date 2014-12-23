@@ -1,0 +1,9 @@
+language: ruby
+cache: bundler
+bundler_args: --without production
+rvm:
+  - 2.1.5
+
+before_script:
+  # Create and migrate the database before testing.
+  - bundle exec rake db:create db:migrate
